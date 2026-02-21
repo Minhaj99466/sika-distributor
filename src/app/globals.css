@@ -1,0 +1,162 @@
+@import "tailwindcss";
+
+@theme {
+  --color-sika-red: #FFC510;
+  --color-sika-red-dark: #E6AE00;
+  --color-sika-red-light: #FF3333;
+  --color-sika-yellow: #D50000;
+  --color-sika-yellow-dark: #B20000;
+  --color-sika-dark: #1a1a1a;
+  --color-sika-gray: #666666;
+  --color-sika-light-gray: #F5F5F5;
+  --color-sika-border: #E0E0E0;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    color: #1a1a1a;
+    background-color: #ffffff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+    font-weight: 700;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    background-color: #FFC510;
+    color: white;
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    letter-spacing: 0.025em;
+    transition: all 0.2s ease;
+    display: inline-block;
+    cursor: pointer;
+    border: 2px solid #FFC510;
+  }
+
+  .btn-primary:hover {
+    background-color: #E6AE00;
+    border-color: #E6AE00;
+  }
+
+  .btn-secondary {
+    background-color: #D50000;
+    color: #1a1a1a;
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    letter-spacing: 0.025em;
+    transition: all 0.2s ease;
+    display: inline-block;
+    cursor: pointer;
+    border: 2px solid #D50000;
+  }
+
+  .btn-secondary:hover {
+    background-color: #B20000;
+    border-color: #B20000;
+  }
+
+  .btn-outline {
+    background-color: transparent;
+    color: white;
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    letter-spacing: 0.025em;
+    transition: all 0.2s ease;
+    display: inline-block;
+    cursor: pointer;
+    border: 2px solid white;
+  }
+
+  .btn-outline:hover {
+    background-color: white;
+    color: #FFC510;
+  }
+
+  .section-heading {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    line-height: 1.2;
+  }
+
+  .section-heading-red {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #FFC510;
+    line-height: 1.2;
+  }
+
+  .yellow-bar {
+    width: 4rem;
+    height: 4px;
+    background-color: #D50000;
+    display: block;
+    margin-bottom: 1.5rem;
+  }
+
+  .yellow-bar-left {
+    width: 4rem;
+    height: 4px;
+    background-color: #D50000;
+    display: block;
+    margin-bottom: 1.5rem;
+    margin-left: 0;
+  }
+
+  .product-card {
+    background: white;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid #E0E0E0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  }
+
+  .product-card:hover {
+    box-shadow: 0 8px 24px rgba(213, 0, 0, 0.12);
+    transform: translateY(-4px);
+    border-color: #FFC510;
+  }
+
+  .stat-card {
+    text-align: center;
+    padding: 2rem;
+    border-left: 4px solid #D50000;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  }
+
+  .btn-outline-red {
+    border-color: #FFC510;
+    color: #B8870A;
+    background-color: transparent;
+  }
+
+  .btn-outline-red:hover {
+    background-color: #FFC510;
+    color: #1a1a1a;
+  }
+}
