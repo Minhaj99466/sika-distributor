@@ -1,11 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { collection, getDocs, orderBy, query } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 import { Category } from "@/lib/types";
 import CategoryProductPreview from "./CategoryProductPreview";
+
+const ITEMS_PER_PAGE = 2;
 
 const whySika = [
   { icon: "🌍", label: "100+ Countries", desc: "Global presence" },

@@ -200,11 +200,6 @@ export default function DynamicCategoryPage({ params }: { params: Promise<{ cate
             </Link>
           </div>
         </div>
-
-        <div
-          className="absolute bottom-0 left-0 w-full h-16"
-          style={{ background: "linear-gradient(to bottom,transparent,#F8FAFC)" }}
-        />
       </section>
 
       {/* ── Product Grid ── */}

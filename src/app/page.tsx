@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
+import HomeCategoriesCarousel from "@/components/HomeCategoriesCarousel";
+import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 
 export const metadata: Metadata = {
   title: "SikaPartner Pro | Authorized Sika Distributor & Partner",
@@ -11,48 +13,6 @@ export const metadata: Metadata = {
   },
 };
 
-const productCategories = [
-  {
-    title: "Adhesive Solutions",
-    slug: "adhesive",
-    description:
-      "High-performance bonding systems for construction, industrial, and specialty applications. From structural glazing to tile fixing.",
-    icon: "🔗",
-    bg: "#EFF6FF",
-    border: "#2563EB",
-    items: ["Structural Adhesives", "Elastic Sealants", "Contact Adhesives", "Epoxy Systems"],
-  },
-  {
-    title: "Flooring Systems",
-    slug: "flooring",
-    description:
-      "Self-leveling, decorative, and heavy-duty industrial floor solutions with exceptional durability and aesthetics.",
-    icon: "🏗️",
-    bg: "#FFF1F2",
-    border: "#BE2227",
-    items: ["Self-Leveling Screeds", "Epoxy Flooring", "Polyurethane Floors", "Decorative Coatings"],
-  },
-  {
-    title: "Roofing Solutions",
-    slug: "roofing",
-    description:
-      "Complete roofing systems including liquid membranes, bituminous waterproofing, and single-ply roofing solutions.",
-    icon: "🏠",
-    bg: "#F0FFF4",
-    border: "#2d7d2d",
-    items: ["Liquid Membranes", "Bituminous Systems", "Single-Ply Roofing", "Roof Coatings"],
-  },
-  {
-    title: "Waterproofing",
-    slug: "waterproofing",
-    description:
-      "Comprehensive waterproofing systems for basements, tunnels, bridges, roofs, and all water-retaining structures.",
-    icon: "💧",
-    bg: "#F0F8FF",
-    border: "#0066CC",
-    items: ["Crystalline Waterproofing", "Cementitious Coatings", "Injection Systems", "Drainage Systems"],
-  },
-];
 
 const stats = [
   { value: "100+", label: "Products Available", desc: "Full Sika product range" },
@@ -94,29 +54,6 @@ const features = [
   },
 ];
 
-const testimonials = [
-  {
-    name: "Michael T.",
-    role: "Project Manager, BuildCo",
-    quote:
-      "SikaPartner Pro's expertise and fast delivery made our waterproofing project a success. Their technical team was available throughout.",
-    rating: 5,
-  },
-  {
-    name: "Sarah K.",
-    role: "Structural Engineer",
-    quote:
-      "We've relied on their adhesive solutions for 3 years. Consistently high quality and the team always recommends the right product.",
-    rating: 5,
-  },
-  {
-    name: "David R.",
-    role: "General Contractor",
-    quote:
-      "The flooring systems we sourced from SikaPartner Pro exceeded client expectations. Competitive pricing with no compromise on quality.",
-    rating: 5,
-  },
-];
 
 const sectors = [
   "Commercial Construction",
@@ -260,51 +197,12 @@ export default function HomePage() {
               Our Product <span style={{ color: "#2563EB" }}>Categories</span>
             </h2>
             <p className="text-slate-500 max-w-2xl mx-auto">
-              We carry the complete Sika product portfolio across four key segments — delivering
+              We carry the complete Sika product portfolio across all key segments — delivering
               proven solutions for every construction and industrial need.
             </p>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {productCategories.map((cat, i) => (
-              <ScrollReveal key={cat.slug} delay={i * 100}>
-                <Link
-                  href={`/products/${cat.slug}`}
-                  className="group product-card block h-full"
-                >
-                  <div
-                    style={{ backgroundColor: cat.bg, borderBottom: `3px solid ${cat.border}` }}
-                    className="p-6 group-hover:opacity-90 transition-opacity"
-                  >
-                    <span className="text-4xl block mb-3 transition-transform group-hover:scale-110">{cat.icon}</span>
-                    <h3 className="font-bold text-xl text-slate-900 group-hover:text-blue-700 transition-colors">
-                      {cat.title}
-                    </h3>
-                  </div>
-                  <div className="p-5">
-                    <p className="text-slate-600 text-sm leading-relaxed mb-4">{cat.description}</p>
-                    <ul className="space-y-1.5 mb-5">
-                      {cat.items.map((item) => (
-                        <li key={item} className="flex items-center gap-2 text-xs text-slate-600">
-                          <span style={{ color: "#2563EB" }}>→</span>
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                    <div
-                      className="flex items-center gap-1 text-sm font-semibold group-hover:gap-2 transition-all"
-                      style={{ color: "#2563EB" }}
-                    >
-                      Learn More
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </div>
-                  </div>
-                </Link>
-              </ScrollReveal>
-            ))}
-          </div>
+          <HomeCategoriesCarousel />
 
           <ScrollReveal className="text-center mt-10" delay={400}>
             <Link
@@ -418,29 +316,7 @@ export default function HomePage() {
             <p className="text-slate-500">Trusted by contractors, engineers, and builders across the region.</p>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {testimonials.map((t, i) => (
-              <ScrollReveal key={t.name} delay={i * 150}>
-                <article
-                  className="p-7 border hover:-translate-y-1 transition-transform"
-                  style={{ backgroundColor: "#0E1628", borderColor: "#1E2C42" }}
-                >
-                  <div className="flex gap-1 mb-4">
-                    {Array.from({ length: t.rating }).map((_, j) => (
-                      <span key={j} style={{ color: "#3B82F6" }}>★</span>
-                    ))}
-                  </div>
-                  <blockquote className="text-slate-300 text-sm leading-relaxed mb-5 italic">
-                    &ldquo;{t.quote}&rdquo;
-                  </blockquote>
-                  <div>
-                    <div className="font-bold text-white">{t.name}</div>
-                    <div className="text-slate-500 text-xs mt-0.5">{t.role}</div>
-                  </div>
-                </article>
-              </ScrollReveal>
-            ))}
-          </div>
+          <TestimonialsCarousel />
         </div>
       </section>
 
