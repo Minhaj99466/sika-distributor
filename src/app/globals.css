@@ -1,15 +1,36 @@
 @import "tailwindcss";
 
 @theme {
-  --color-sika-red: #FFC510;
-  --color-sika-red-dark: #E6AE00;
-  --color-sika-red-light: #FF3333;
-  --color-sika-yellow: #D50000;
-  --color-sika-yellow-dark: #B20000;
-  --color-sika-dark: #1a1a1a;
-  --color-sika-gray: #666666;
-  --color-sika-light-gray: #F5F5F5;
-  --color-sika-border: #E0E0E0;
+  /* ── Deep Onyx ── */
+  --color-onyx:             #080C15;
+  --color-onyx-2:           #0E1628;
+  --color-onyx-3:           #162038;
+
+  /* ── Sapphire (primary accent) ── */
+  --color-sapphire:         #2563EB;
+  --color-sapphire-hover:   #1E40AF;
+  --color-sapphire-light:   #3B82F6;
+  --color-sapphire-muted:   #1E3A8A;
+
+  /* ── Refined Crimson (secondary accent) ── */
+  --color-crimson:          #BE2227;
+  --color-crimson-dark:     #991B1B;
+
+  /* ── Surfaces ── */
+  --color-surface:          #F8FAFC;
+  --color-surface-2:        #EFF6FF;
+  --color-surface-3:        #E0ECFF;
+
+  /* ── Text ── */
+  --color-text:             #0F172A;
+  --color-text-2:           #334155;
+  --color-text-muted:       #64748B;
+
+  /* ── Borders ── */
+  --color-border:           #E2E8F0;
+  --color-border-light:     #F1F5F9;
+  --color-border-dark:      #1E2C42;
+
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
@@ -20,8 +41,8 @@
 
   body {
     font-family: var(--font-sans);
-    color: #1a1a1a;
-    background-color: #ffffff;
+    color: #0F172A;
+    background-color: #F8FAFC;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -41,51 +62,150 @@
   }
 }
 
+/* ════════════════════════════════════════
+   Keyframe Animations
+   ════════════════════════════════════════ */
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-36px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(36px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.88); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.45); }
+  50%       { box-shadow: 0 0 0 10px rgba(37, 99, 235, 0); }
+}
+
+@keyframes shimmerBar {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(400%); }
+}
+
+/* ════════════════════════════════════════
+   Animation Utility Classes
+   ════════════════════════════════════════ */
+
+.animate-fade-in-up {
+  opacity: 0;
+  animation: fadeInUp 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-fade-in-down {
+  opacity: 0;
+  animation: fadeInDown 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-fade-in-left {
+  opacity: 0;
+  animation: fadeInLeft 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-fade-in-right {
+  opacity: 0;
+  animation: fadeInRight 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-scale-in {
+  opacity: 0;
+  animation: scaleIn 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2.5s ease-in-out infinite;
+}
+
+/* ── Stagger delays ── */
+.delay-100  { animation-delay: 0.10s; }
+.delay-200  { animation-delay: 0.20s; }
+.delay-300  { animation-delay: 0.30s; }
+.delay-400  { animation-delay: 0.40s; }
+.delay-500  { animation-delay: 0.50s; }
+.delay-600  { animation-delay: 0.60s; }
+.delay-700  { animation-delay: 0.70s; }
+.delay-800  { animation-delay: 0.80s; }
+.delay-900  { animation-delay: 0.90s; }
+.delay-1000 { animation-delay: 1.00s; }
+
 @layer components {
+  /* ── Primary button: sapphire ── */
   .btn-primary {
-    background-color: #FFC510;
+    background-color: #2563EB;
     color: white;
     padding: 0.75rem 2rem;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 0.9375rem;
     letter-spacing: 0.025em;
-    transition: all 0.2s ease;
+    transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
     display: inline-block;
     cursor: pointer;
-    border: 2px solid #FFC510;
+    border: 2px solid #2563EB;
   }
 
   .btn-primary:hover {
-    background-color: #E6AE00;
-    border-color: #E6AE00;
+    background-color: #1E40AF;
+    border-color: #1E40AF;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35);
   }
 
+  /* ── Secondary button: crimson ── */
   .btn-secondary {
-    background-color: #D50000;
-    color: #1a1a1a;
+    background-color: #BE2227;
+    color: white;
     padding: 0.75rem 2rem;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 0.9375rem;
     letter-spacing: 0.025em;
-    transition: all 0.2s ease;
+    transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
     display: inline-block;
     cursor: pointer;
-    border: 2px solid #D50000;
+    border: 2px solid #BE2227;
   }
 
   .btn-secondary:hover {
-    background-color: #B20000;
-    border-color: #B20000;
+    background-color: #991B1B;
+    border-color: #991B1B;
+    transform: translateY(-2px);
   }
 
+  /* ── Outline button: white border ── */
   .btn-outline {
     background-color: transparent;
     color: white;
     padding: 0.75rem 2rem;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 0.9375rem;
     letter-spacing: 0.025em;
-    transition: all 0.2s ease;
+    transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
     display: inline-block;
     cursor: pointer;
     border: 2px solid white;
@@ -93,70 +213,98 @@
 
   .btn-outline:hover {
     background-color: white;
-    color: #FFC510;
+    color: #2563EB;
+    transform: translateY(-2px);
   }
 
+  /* ── Section headings ── */
   .section-heading {
     font-size: 2rem;
-    font-weight: 700;
-    color: #1a1a1a;
+    font-weight: 800;
+    color: #0F172A;
     line-height: 1.2;
   }
 
-  .section-heading-red {
+  .section-heading-blue {
     font-size: 2rem;
-    font-weight: 700;
-    color: #FFC510;
+    font-weight: 800;
+    color: #2563EB;
     line-height: 1.2;
   }
 
+  /* ── Accent bar with shimmer ── */
   .yellow-bar {
     width: 4rem;
     height: 4px;
-    background-color: #D50000;
+    background-color: #2563EB;
     display: block;
     margin-bottom: 1.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .yellow-bar::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    width: 30%;
+    background: rgba(255, 255, 255, 0.5);
+    animation: shimmerBar 2.2s ease-in-out infinite;
   }
 
   .yellow-bar-left {
     width: 4rem;
     height: 4px;
-    background-color: #D50000;
+    background-color: #2563EB;
     display: block;
     margin-bottom: 1.5rem;
     margin-left: 0;
   }
 
+  /* ── Product card ── */
   .product-card {
     background: white;
     overflow: hidden;
-    transition: all 0.3s ease;
-    border: 1px solid #E0E0E0;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    border: 1px solid #E2E8F0;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
   }
 
   .product-card:hover {
-    box-shadow: 0 8px 24px rgba(213, 0, 0, 0.12);
-    transform: translateY(-4px);
-    border-color: #FFC510;
+    box-shadow: 0 16px 48px rgba(37, 99, 235, 0.14);
+    transform: translateY(-6px);
+    border-color: #2563EB;
   }
 
+  /* ── Stat card ── */
   .stat-card {
     text-align: center;
     padding: 2rem;
-    border-left: 4px solid #D50000;
+    border-left: 4px solid #2563EB;
     background: white;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
 
+  .stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.12);
+  }
+
+  /* ── Sapphire outline button ── */
   .btn-outline-red {
-    border-color: #FFC510;
-    color: #B8870A;
+    border-color: #2563EB;
+    color: #1E3A8A;
     background-color: transparent;
+    font-weight: 700;
+    transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .btn-outline-red:hover {
-    background-color: #FFC510;
-    color: #1a1a1a;
+    background-color: #2563EB;
+    color: white;
+    border-color: #2563EB;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
   }
 }

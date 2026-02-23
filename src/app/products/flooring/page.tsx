@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import ProductsGrid from "../ProductsGrid";
 
 export const metadata: Metadata = {
   title: "Sika Flooring Systems | Sikafloor Self-Leveling & Epoxy",
@@ -10,57 +11,6 @@ export const metadata: Metadata = {
     canonical: "https://www.sikapartnerpro.com/products/flooring",
   },
 };
-
-const products = [
-  {
-    name: "Sikafloor® Level-30",
-    category: "Self-Leveling Screed",
-    desc: "Fast-setting, pumpable self-leveling screed. Ideal for rapid floor leveling before final flooring installation. Foot-traffic ready in 4 hours.",
-    applications: ["Floor leveling", "Overlay base", "Commercial flooring", "Residential prep"],
-    badge: "Fast Curing",
-    color: "#D50000",
-  },
-  {
-    name: "Sikafloor® 264",
-    category: "Epoxy Coating System",
-    desc: "2-part, solvent-free, pigmented, self-smoothing epoxy resin floor coating. Seamless, hygienic, and highly chemical resistant.",
-    applications: ["Food industry", "Industrial floors", "Warehouses", "Clean rooms"],
-    badge: "Best Seller",
-    color: "#D50000",
-  },
-  {
-    name: "Sikafloor® 400 N Elastic",
-    category: "Polyurethane Floor Coating",
-    desc: "2-part, flexible polyurethane floor coating for areas requiring crack-bridging ability. UV-stable for indoor and outdoor use.",
-    applications: ["Car parks", "Balconies", "Walkways", "Outdoor areas"],
-    badge: null,
-    color: "#D50000",
-  },
-  {
-    name: "Sikafloor® Chapdur",
-    category: "Dry Shake Hardener",
-    desc: "Surface hardener for fresh concrete floors. Creates an extremely hard, wear-resistant, dust-proof surface.",
-    applications: ["Industrial concrete", "Warehouses", "Factory floors", "Logistics hubs"],
-    badge: "Durable",
-    color: "#D50000",
-  },
-  {
-    name: "Sikafloor® ProSeal",
-    category: "Surface Sealer",
-    desc: "Penetrating sealer and densifier for concrete floor surfaces. Improves surface hardness and significantly reduces dusting.",
-    applications: ["Concrete sealing", "Warehouse floors", "Hardening", "Dust proofing"],
-    badge: null,
-    color: "#D50000",
-  },
-  {
-    name: "Sikafloor® MultiDur ES-24",
-    category: "Epoxy Mortar System",
-    desc: "3-part, broadcast-applied epoxy mortar floor system. Provides extreme mechanical and chemical resistance for heavily loaded areas.",
-    applications: ["Heavy industry", "Chemical plants", "Food processing", "Pharmaceutical"],
-    badge: "Heavy Duty",
-    color: "#D50000",
-  },
-];
 
 const flooringTypes = [
   {
@@ -91,7 +41,7 @@ export default function FlooringPage() {
       {/* Hero */}
       <section
         style={{ background: "linear-gradient(135deg, #B8880A 0%, #7A5A00 100%)" }}
-        className="py-20 md:py-28 relative"
+        className="py-10 md:py-8 relative"
       >
         <div style={{ backgroundColor: "#D50000", height: "4px" }} className="absolute top-0 left-0 w-full" />
         <div className="max-w-7xl mx-auto px-6">
@@ -145,45 +95,16 @@ export default function FlooringPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {products.map((product) => (
-              <article
-                key={product.name}
-                className="bg-white border border-gray-200 hover:border-yellow-400 hover:shadow-lg transition-all group"
-              >
-                <div className="h-2 w-full" style={{ backgroundColor: "#D50000" }} />
-                <div className="p-6">
-                  <div className="flex items-start justify-between gap-3 mb-2">
-                    <h3 className="font-black text-gray-900 text-lg group-hover:text-yellow-700 transition-colors">
-                      {product.name}
-                    </h3>
-                    {product.badge && (
-                      <span className="px-2 py-0.5 text-xs font-bold text-white flex-shrink-0" style={{ backgroundColor: "#FFC510" }}>
-                        {product.badge}
-                      </span>
-                    )}
-                  </div>
-                  <div className="text-xs font-semibold uppercase tracking-wider mb-3 text-yellow-700">
-                    {product.category}
-                  </div>
-                  <p className="text-gray-600 text-sm leading-relaxed mb-4">{product.desc}</p>
-                  <div>
-                    <div className="text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">Applications</div>
-                    <div className="flex flex-wrap gap-2">
-                      {product.applications.map((app) => (
-                        <span key={app} className="px-2.5 py-1 text-xs font-medium bg-yellow-50 text-yellow-800">
-                          {app}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                  <Link href="/contact" className="mt-5 flex items-center gap-1 text-sm font-semibold text-yellow-700 hover:gap-2 transition-all">
-                    Request Quote →
-                  </Link>
-                </div>
-              </article>
-            ))}
-          </div>
+          <ProductsGrid
+            category="flooring"
+            accentColor="#D50000"
+            badgeColor="#FFC510"
+            tagBg="#FEFCE8"
+            tagText="#713F12"
+            hoverBorderClass="hover:border-yellow-400"
+            titleHoverClass="group-hover:text-yellow-700"
+            linkColor="#713F12"
+          />
         </div>
       </section>
 

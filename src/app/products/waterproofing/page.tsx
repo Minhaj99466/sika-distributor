@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import ProductsGrid from "../ProductsGrid";
 
 export const metadata: Metadata = {
   title: "Sika Waterproofing Systems | Crystalline, Membranes & Injection",
@@ -10,51 +11,6 @@ export const metadata: Metadata = {
     canonical: "https://www.sikapartnerpro.com/products/waterproofing",
   },
 };
-
-const products = [
-  {
-    name: "Sika® WT-200 W",
-    category: "Crystalline Waterproofing",
-    desc: "Integral crystalline waterproofing admixture for concrete. Permanently seals capillary pores and micro-cracks even under hydrostatic pressure.",
-    applications: ["Concrete waterproofing", "Water tanks", "Tunnels", "Foundations"],
-    badge: "Best in Class",
-  },
-  {
-    name: "SikaTop® Seal-107",
-    category: "Cementitious Coating",
-    desc: "2-part, flexible, polymer-modified cementitious waterproofing slurry. Applied by brush or spray to concrete and masonry surfaces.",
-    applications: ["Basements", "Retaining walls", "Planters", "Water tanks"],
-    badge: "Popular",
-  },
-  {
-    name: "Sikaplan® G-12",
-    category: "Sheet Waterproofing Membrane",
-    desc: "High-performance HDPE sheet membrane for buried structures. Excellent chemical resistance and long-term durability.",
-    applications: ["Underground structures", "Tunnels", "Basements", "Podiums"],
-    badge: null,
-  },
-  {
-    name: "Sika® Injection-451",
-    category: "Injection Grout",
-    desc: "Expanding polyurethane injection resin for stopping active water infiltration in joints, cracks, and cavities. Fast-expanding foam gel system.",
-    applications: ["Active leaks", "Joint injection", "Crack repair", "Tunnel sealing"],
-    badge: "Emergency Fix",
-  },
-  {
-    name: "Sikagard® 701 W",
-    category: "Concrete Surface Protector",
-    desc: "Penetrating silane/siloxane impregnation that repels water and chlorides on above-ground concrete structures without changing appearance.",
-    applications: ["Bridge decks", "Façades", "Parking structures", "Marine structures"],
-    badge: null,
-  },
-  {
-    name: "Sika® Waterbar B 20",
-    category: "Waterstop System",
-    desc: "PVC flexible waterstop designed for construction joints in water-retaining structures. Available in various profiles for different joint widths.",
-    applications: ["Construction joints", "Expansion joints", "Reservoirs", "Tunnels"],
-    badge: "System Solution",
-  },
-];
 
 const structures = [
   { icon: "🏗️", name: "Basements & Foundations", desc: "Below-grade waterproofing" },
@@ -71,7 +27,7 @@ export default function WaterproofingPage() {
       {/* Hero */}
       <section
         style={{ background: "linear-gradient(135deg, #0047AB 0%, #001f5b 100%)" }}
-        className="py-20 md:py-28 relative"
+        className="py-10 md:py-8 relative"
       >
         <div style={{ backgroundColor: "#D50000", height: "4px" }} className="absolute top-0 left-0 w-full" />
         <div className="max-w-7xl mx-auto px-6">
@@ -125,45 +81,16 @@ export default function WaterproofingPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {products.map((product) => (
-              <article
-                key={product.name}
-                className="bg-white border border-gray-200 hover:border-blue-500 hover:shadow-lg transition-all group"
-              >
-                <div className="h-2 w-full" style={{ backgroundColor: "#0066CC" }} />
-                <div className="p-6">
-                  <div className="flex items-start justify-between gap-3 mb-2">
-                    <h3 className="font-black text-gray-900 text-lg group-hover:text-blue-700 transition-colors">
-                      {product.name}
-                    </h3>
-                    {product.badge && (
-                      <span className="px-2 py-0.5 text-xs font-bold text-white flex-shrink-0" style={{ backgroundColor: "#0066CC" }}>
-                        {product.badge}
-                      </span>
-                    )}
-                  </div>
-                  <div className="text-xs font-semibold uppercase tracking-wider mb-3 text-blue-700">
-                    {product.category}
-                  </div>
-                  <p className="text-gray-600 text-sm leading-relaxed mb-4">{product.desc}</p>
-                  <div>
-                    <div className="text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">Applications</div>
-                    <div className="flex flex-wrap gap-2">
-                      {product.applications.map((app) => (
-                        <span key={app} className="px-2.5 py-1 text-xs font-medium bg-blue-50 text-blue-800">
-                          {app}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                  <Link href="/contact" className="mt-5 flex items-center gap-1 text-sm font-semibold text-blue-700 hover:gap-2 transition-all">
-                    Request Quote →
-                  </Link>
-                </div>
-              </article>
-            ))}
-          </div>
+          <ProductsGrid
+            category="waterproofing"
+            accentColor="#0066CC"
+            badgeColor="#0066CC"
+            tagBg="#EFF6FF"
+            tagText="#1E40AF"
+            hoverBorderClass="hover:border-blue-500"
+            titleHoverClass="group-hover:text-blue-700"
+            linkColor="#1E40AF"
+          />
         </div>
       </section>
 

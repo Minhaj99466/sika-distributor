@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import ProductsGrid from "../ProductsGrid";
 
 export const metadata: Metadata = {
   title: "Sika Adhesive Solutions | SikaFlex, SikaBond & More",
@@ -10,51 +11,6 @@ export const metadata: Metadata = {
     canonical: "https://www.sikapartnerpro.com/products/adhesive",
   },
 };
-
-const products = [
-  {
-    name: "Sikaflex® PRO-3",
-    category: "Elastic Adhesive & Sealant",
-    desc: "1-part polyurethane elastic adhesive and sealant. Ideal for floor and wall joints in demanding environments. Foot-traffic resistant when cured.",
-    applications: ["Floor joints", "Wall joints", "Sanitary areas", "Façades"],
-    badge: "Best Seller",
-  },
-  {
-    name: "SikaBond® T54",
-    category: "Elastic Bonding Adhesive",
-    desc: "1-part, moisture-curing elastic bonding adhesive for bonding parquet, hardwood, and engineered wood flooring to various substrates.",
-    applications: ["Hardwood bonding", "Parquet floors", "Sports floors", "Subfloor prep"],
-    badge: "Popular",
-  },
-  {
-    name: "Sikadur® 32",
-    category: "Epoxy Adhesive",
-    desc: "2-part, thixotropic, epoxy resin bonding agent for structural bonding of concrete, masonry, and cementitious overlays to existing substrates.",
-    applications: ["Concrete repair", "Structural bonding", "New/old concrete", "Overlay systems"],
-    badge: null,
-  },
-  {
-    name: "Sikasil® C",
-    category: "Silicone Sealant",
-    desc: "1-part, neutral-curing silicone sealant for construction joint sealing. Excellent adhesion to glass, aluminium, and most building materials.",
-    applications: ["Glass façades", "Window sealing", "Curtain walling", "Sanitary joints"],
-    badge: null,
-  },
-  {
-    name: "SikaForce® 7710",
-    category: "Structural Adhesive",
-    desc: "2-part polyurethane structural adhesive for load-bearing bonded connections. Replaces traditional mechanical fasteners with high strength bonds.",
-    applications: ["Structural glazing", "Façade panels", "Composite materials", "Load-bearing joints"],
-    badge: "Technical",
-  },
-  {
-    name: "Sikaflex® 221",
-    category: "Multi-Purpose Sealant",
-    desc: "1-part polyurethane adhesive and sealant designed for interior and exterior use on metal, painted surfaces, wood, and rigid plastics.",
-    applications: ["General sealing", "Interior/exterior", "Transportation", "Marine"],
-    badge: null,
-  },
-];
 
 const applications = [
   { icon: "🏗️", name: "Concrete & Masonry" },
@@ -71,7 +27,7 @@ export default function AdhesivePage() {
       {/* Hero */}
       <section
         style={{ background: "linear-gradient(135deg, #CC8800 0%, #7A4400 100%)" }}
-        className="py-20 md:py-28 relative"
+        className="py-10 md:py-8 relative"
       >
         <div style={{ backgroundColor: "#D50000", height: "4px" }} className="absolute top-0 left-0 w-full" />
         <div className="max-w-7xl mx-auto px-6">
@@ -110,59 +66,16 @@ export default function AdhesivePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {products.map((product) => (
-              <article
-                key={product.name}
-                className="bg-white border border-gray-200 hover:border-red-500 hover:shadow-lg transition-all group"
-              >
-                <div
-                  className="h-2 w-full"
-                  style={{ backgroundColor: "#FFC510" }}
-                />
-                <div className="p-6">
-                  <div className="flex items-start justify-between gap-3 mb-2">
-                    <h3 className="font-black text-gray-900 text-lg group-hover:text-red-700 transition-colors">
-                      {product.name}
-                    </h3>
-                    {product.badge && (
-                      <span
-                        className="px-2 py-0.5 text-xs font-bold text-white flex-shrink-0"
-                        style={{ backgroundColor: product.badge === "Technical" ? "#1a1a1a" : "#FFC510" }}
-                      >
-                        {product.badge}
-                      </span>
-                    )}
-                  </div>
-                  <div className="text-xs font-semibold uppercase tracking-wider mb-3" style={{ color: "#D50000", filter: "brightness(0.8)" }}>
-                    {product.category}
-                  </div>
-                  <p className="text-gray-600 text-sm leading-relaxed mb-4">{product.desc}</p>
-                  <div>
-                    <div className="text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">Key Applications</div>
-                    <div className="flex flex-wrap gap-2">
-                      {product.applications.map((app) => (
-                        <span
-                          key={app}
-                          className="px-2.5 py-1 text-xs font-medium"
-                          style={{ backgroundColor: "#FFF5F5", color: "#D50000" }}
-                        >
-                          {app}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                  <Link
-                    href="/contact"
-                    className="mt-5 flex items-center gap-1 text-sm font-semibold hover:gap-2 transition-all"
-                    style={{ color: "#FFC510" }}
-                  >
-                    Request Quote →
-                  </Link>
-                </div>
-              </article>
-            ))}
-          </div>
+          <ProductsGrid
+            category="adhesive"
+            accentColor="#FFC510"
+            badgeColor="#FFC510"
+            tagBg="#FFF5F5"
+            tagText="#D50000"
+            hoverBorderClass="hover:border-red-500"
+            titleHoverClass="group-hover:text-red-700"
+            linkColor="#D50000"
+          />
         </div>
       </section>
 

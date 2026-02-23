@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import ScrollReveal from "@/components/ScrollReveal";
 
 export const metadata: Metadata = {
   title: "SikaPartner Pro | Authorized Sika Distributor & Partner",
@@ -17,8 +18,8 @@ const productCategories = [
     description:
       "High-performance bonding systems for construction, industrial, and specialty applications. From structural glazing to tile fixing.",
     icon: "🔗",
-    bg: "#FFF5F5",
-    border: "#FFC510",
+    bg: "#EFF6FF",
+    border: "#2563EB",
     items: ["Structural Adhesives", "Elastic Sealants", "Contact Adhesives", "Epoxy Systems"],
   },
   {
@@ -27,8 +28,8 @@ const productCategories = [
     description:
       "Self-leveling, decorative, and heavy-duty industrial floor solutions with exceptional durability and aesthetics.",
     icon: "🏗️",
-    bg: "#FFFBF0",
-    border: "#D50000",
+    bg: "#FFF1F2",
+    border: "#BE2227",
     items: ["Self-Leveling Screeds", "Epoxy Flooring", "Polyurethane Floors", "Decorative Coatings"],
   },
   {
@@ -37,7 +38,7 @@ const productCategories = [
     description:
       "Complete roofing systems including liquid membranes, bituminous waterproofing, and single-ply roofing solutions.",
     icon: "🏠",
-    bg: "#F5FFF5",
+    bg: "#F0FFF4",
     border: "#2d7d2d",
     items: ["Liquid Membranes", "Bituminous Systems", "Single-Ply Roofing", "Roof Coatings"],
   },
@@ -129,77 +130,82 @@ const sectors = [
 export default function HomePage() {
   return (
     <>
-      {/* Hero Section */}
+      {/* ── Hero Section ── */}
       <section
         className="relative overflow-hidden"
         style={{
-          background: "linear-gradient(135deg, #CC8800 0%, #7A4400 50%, #1a1a1a 100%)",
+          background: "linear-gradient(135deg, #060A12 0%, #0A1628 55%, #0F2451 100%)",
           minHeight: "600px",
         }}
         aria-label="Hero section"
       >
-        {/* Background pattern */}
+        {/* Subtle grid pattern */}
         <div
-          className="absolute inset-0 opacity-5"
+          className="absolute inset-0 opacity-[0.04]"
           style={{
             backgroundImage: `repeating-linear-gradient(
-              45deg,
-              #ffffff 0px,
-              #ffffff 1px,
-              transparent 1px,
-              transparent 60px
+              0deg, #3B82F6 0px, #3B82F6 1px, transparent 1px, transparent 60px
+            ), repeating-linear-gradient(
+              90deg, #3B82F6 0px, #3B82F6 1px, transparent 1px, transparent 60px
             )`,
           }}
         />
 
-        {/* Yellow accent bar */}
-        <div
-          className="absolute top-0 left-0 h-1 w-full"
-          style={{ backgroundColor: "#D50000" }}
-        />
+        {/* Sapphire accent bar */}
+        <div className="absolute top-0 left-0 h-1 w-full" style={{ backgroundColor: "#2563EB" }} />
 
-        <div className="relative max-w-7xl mx-auto px-6 py-20 md:py-28 lg:py-32">
+        <div className="relative max-w-7xl mx-auto px-6 py-10 md:py-8 lg:py-16">
           <div className="max-w-3xl">
+
             {/* Badge */}
             <div
-              className="inline-flex items-center gap-2 px-4 py-1.5 text-sm font-semibold mb-6"
-              style={{ backgroundColor: "#D50000", color: "white" }}
+              className="animate-fade-in-left inline-flex items-center gap-2 px-4 py-1.5 text-sm font-semibold mb-6"
+              style={{ backgroundColor: "#BE2227", color: "white" }}
             >
               <span>★</span>
               <span>Authorized Sika Distributor &amp; Partner</span>
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-6">
+            <h1 className="animate-fade-in-up delay-200 text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-6">
               Premium Sika Solutions{" "}
-              <span style={{ color: "#fff" }}>Delivered to Your Project</span>
+              <span
+                style={{
+                  background: "linear-gradient(90deg, #3B82F6 0%, #60A5FA 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                }}
+              >
+                Delivered to Your Project
+              </span>
             </h1>
 
-            <p className="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl leading-relaxed">
+            <p className="animate-fade-in-up delay-400 text-lg md:text-xl text-slate-300 mb-10 max-w-2xl leading-relaxed">
               As an authorized Sika partner, we supply the complete range of Sika adhesives, flooring,
               roofing, and waterproofing products — backed by local expertise and global quality.
             </p>
 
-            <div className="flex flex-wrap gap-4">
+            <div className="animate-fade-in-up delay-600 flex flex-wrap gap-4">
               <Link
                 href="/products"
-                className="font-bold text-base px-8 py-4 transition-all hover:scale-105"
-                style={{ backgroundColor: "#FFC510", color: "#1a1a1a" }}
+                className="font-bold text-base px-4 py-4 transition-all hover:scale-105 hover:shadow-lg"
+                style={{ backgroundColor: "#2563EB", color: "white" }}
               >
                 Explore Products
               </Link>
               <Link
                 href="/contact"
-                className="font-bold text-base px-8 py-4 border-2 border-white text-white transition-all hover:bg-white hover:text-red-700"
+                className="font-bold text-base px-8 py-4 border-2 border-white/60 text-white transition-all hover:border-white hover:bg-white/10"
               >
                 Get a Quote
               </Link>
             </div>
 
             {/* Trust signals */}
-            <div className="mt-12 flex flex-wrap gap-6">
+            <div className="animate-fade-in-up delay-800 mt-12 flex flex-wrap gap-6">
               {["Sika Certified Partner", "ISO 9001 Compliant", "Technical Support Included"].map((trust) => (
-                <div key={trust} className="flex items-center gap-2 text-gray-300 text-sm">
-                  <svg className="w-4 h-4 text-yellow-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <div key={trust} className="flex items-center gap-2 text-slate-400 text-sm">
+                  <svg className="w-4 h-4 flex-shrink-0" style={{ color: "#3B82F6" }} fill="currentColor" viewBox="0 0 20 20">
                     <path
                       fillRule="evenodd"
                       d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
@@ -213,96 +219,94 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Decorative shape */}
+        {/* Decorative glowing orb */}
         <div
-          className="absolute right-0 top-0 h-full w-1/3 hidden lg:block opacity-10"
+          className="absolute right-0 top-0 h-full w-1/2 hidden lg:block"
           style={{
-            background: "linear-gradient(90deg, transparent, #D50000)",
-            clipPath: "polygon(30% 0%, 100% 0%, 100% 100%, 0% 100%)",
+            background: "radial-gradient(ellipse at 80% 50%, rgba(37,99,235,0.12) 0%, transparent 70%)",
           }}
         />
+
       </section>
 
-      {/* Stats Bar */}
-      <section style={{ backgroundColor: "#1a1a1a" }} className="py-10" aria-label="Key statistics">
+      {/* ── Stats Bar ── */}
+      <section style={{ backgroundColor: "#080C15" }} className="py-12" aria-label="Key statistics">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {stats.map((stat) => (
-              <div key={stat.label} className="text-center">
-                <div
-                  className="text-3xl md:text-4xl font-black mb-1"
-                  style={{ color: "#FFC510" }}
-                >
-                  {stat.value}
+            {stats.map((stat, i) => (
+              <ScrollReveal key={stat.label} delay={i * 120}>
+                <div className="text-center group">
+                  <div
+                    className="text-3xl md:text-4xl font-black mb-1 transition-transform group-hover:scale-110"
+                    style={{ color: "#3B82F6" }}
+                  >
+                    {stat.value}
+                  </div>
+                  <div className="text-white font-semibold text-sm">{stat.label}</div>
+                  <div className="text-slate-500 text-xs mt-0.5">{stat.desc}</div>
                 </div>
-                <div className="text-white font-semibold text-sm">{stat.label}</div>
-                <div className="text-gray-500 text-xs mt-0.5">{stat.desc}</div>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Product Categories */}
+      {/* ── Product Categories ── */}
       <section className="py-20 bg-white" id="products" aria-label="Product categories">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-14">
-            <span className="yellow-bar mx-auto" style={{ display: "block", width: "4rem", height: "4px", backgroundColor: "#D50000", margin: "0 auto 1.5rem" }} />
-            <h2 className="section-heading text-3xl md:text-4xl font-black mb-4" style={{ color: "#1a1a1a" }}>
-              Our Product <span style={{ color: "#FFC510" }}>Categories</span>
+          <ScrollReveal className="text-center mb-14">
+            <span className="yellow-bar mx-auto" style={{ display: "block", width: "4rem", height: "4px", backgroundColor: "#2563EB", margin: "0 auto 1.5rem" }} />
+            <h2 className="section-heading text-3xl md:text-4xl font-black mb-4" style={{ color: "#0F172A" }}>
+              Our Product <span style={{ color: "#2563EB" }}>Categories</span>
             </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <p className="text-slate-500 max-w-2xl mx-auto">
               We carry the complete Sika product portfolio across four key segments — delivering
               proven solutions for every construction and industrial need.
             </p>
-          </div>
+          </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {productCategories.map((cat) => (
-              <Link
-                key={cat.slug}
-                href={`/products/${cat.slug}`}
-                className="group product-card block"
-                style={{
-                  background: "white",
-                  border: "1px solid #E0E0E0",
-                  transition: "all 0.3s ease",
-                }}
-              >
-                <div
-                  style={{ backgroundColor: cat.bg, borderBottom: `3px solid ${cat.border}` }}
-                  className="p-6 group-hover:opacity-90 transition-opacity"
+            {productCategories.map((cat, i) => (
+              <ScrollReveal key={cat.slug} delay={i * 100}>
+                <Link
+                  href={`/products/${cat.slug}`}
+                  className="group product-card block h-full"
                 >
-                  <span className="text-4xl block mb-3">{cat.icon}</span>
-                  <h3 className="font-bold text-xl text-gray-900 group-hover:text-yellow-700 transition-colors">
-                    {cat.title}
-                  </h3>
-                </div>
-                <div className="p-5">
-                  <p className="text-gray-600 text-sm leading-relaxed mb-4">{cat.description}</p>
-                  <ul className="space-y-1.5 mb-5">
-                    {cat.items.map((item) => (
-                      <li key={item} className="flex items-center gap-2 text-xs text-gray-600">
-                        <span style={{ color: "#B8870A" }}>→</span>
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
                   <div
-                    className="flex items-center gap-1 text-sm font-semibold group-hover:gap-2 transition-all"
-                    style={{ color: "#B8870A" }}
+                    style={{ backgroundColor: cat.bg, borderBottom: `3px solid ${cat.border}` }}
+                    className="p-6 group-hover:opacity-90 transition-opacity"
                   >
-                    Learn More
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
+                    <span className="text-4xl block mb-3 transition-transform group-hover:scale-110">{cat.icon}</span>
+                    <h3 className="font-bold text-xl text-slate-900 group-hover:text-blue-700 transition-colors">
+                      {cat.title}
+                    </h3>
                   </div>
-                </div>
-              </Link>
+                  <div className="p-5">
+                    <p className="text-slate-600 text-sm leading-relaxed mb-4">{cat.description}</p>
+                    <ul className="space-y-1.5 mb-5">
+                      {cat.items.map((item) => (
+                        <li key={item} className="flex items-center gap-2 text-xs text-slate-600">
+                          <span style={{ color: "#2563EB" }}>→</span>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                    <div
+                      className="flex items-center gap-1 text-sm font-semibold group-hover:gap-2 transition-all"
+                      style={{ color: "#2563EB" }}
+                    >
+                      Learn More
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </div>
+                </Link>
+              </ScrollReveal>
             ))}
           </div>
 
-          <div className="text-center mt-10">
+          <ScrollReveal className="text-center mt-10" delay={400}>
             <Link
               href="/products"
               className="btn-outline-red inline-flex items-center gap-2 font-semibold text-sm px-8 py-3 border-2 transition-all"
@@ -312,21 +316,22 @@ export default function HomePage() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </Link>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <section className="py-20" style={{ backgroundColor: "#F5F5F5" }} aria-label="Why choose us">
+      {/* ── Why Choose Us ── */}
+      <section className="py-20" style={{ backgroundColor: "#EFF6FF" }} aria-label="Why choose us">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-14 items-center">
-            <div>
-              <span style={{ display: "block", width: "4rem", height: "4px", backgroundColor: "#D50000", marginBottom: "1.5rem" }} />
-              <h2 className="text-3xl md:text-4xl font-black mb-5" style={{ color: "#1a1a1a" }}>
+
+            <ScrollReveal direction="left">
+              <span style={{ display: "block", width: "4rem", height: "4px", backgroundColor: "#2563EB", marginBottom: "1.5rem" }} />
+              <h2 className="text-3xl md:text-4xl font-black mb-5" style={{ color: "#0F172A" }}>
                 Why Choose{" "}
-                <span style={{ color: "#FFC510" }}>SikaPartner Pro?</span>
+                <span style={{ color: "#2563EB" }}>SikaPartner Pro?</span>
               </h2>
-              <p className="text-gray-600 mb-8 leading-relaxed">
+              <p className="text-slate-600 mb-8 leading-relaxed">
                 With direct authorization from Sika and years of hands-on experience, we are your
                 single-source partner for all Sika construction chemical needs — from product
                 selection to on-site technical support.
@@ -334,16 +339,16 @@ export default function HomePage() {
 
               <div className="space-y-5">
                 {features.slice(0, 3).map((f) => (
-                  <div key={f.title} className="flex items-start gap-4">
+                  <div key={f.title} className="flex items-start gap-4 group">
                     <div
-                      className="w-10 h-10 flex items-center justify-center flex-shrink-0 text-gray-900 font-bold"
-                      style={{ backgroundColor: "#FFC510" }}
+                      className="w-10 h-10 flex items-center justify-center flex-shrink-0 text-white font-bold transition-transform group-hover:scale-110"
+                      style={{ backgroundColor: "#2563EB" }}
                     >
                       {f.icon}
                     </div>
                     <div>
-                      <h3 className="font-bold text-gray-900 mb-1">{f.title}</h3>
-                      <p className="text-gray-600 text-sm leading-relaxed">{f.desc}</p>
+                      <h3 className="font-bold text-slate-900 mb-1">{f.title}</h3>
+                      <p className="text-slate-600 text-sm leading-relaxed">{f.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -351,118 +356,132 @@ export default function HomePage() {
 
               <Link
                 href="/about"
-                className="inline-flex items-center gap-2 mt-8 font-semibold text-sm px-7 py-3 text-gray-900 transition-all hover:opacity-90"
-                style={{ backgroundColor: "#FFC510" }}
+                className="inline-flex items-center gap-2 mt-8 font-semibold text-sm px-7 py-3 text-white transition-all hover:opacity-90 hover:-translate-y-0.5"
+                style={{ backgroundColor: "#2563EB" }}
               >
                 Learn About Us
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </Link>
-            </div>
+            </ScrollReveal>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-              {features.slice(3).map((f) => (
-                <div
-                  key={f.title}
-                  className="bg-white p-6 shadow-sm border-t-4 hover:shadow-md transition-shadow"
-                  style={{ borderTopColor: "#D50000" }}
-                >
-                  <div className="text-3xl mb-3">{f.icon}</div>
-                  <h3 className="font-bold text-gray-900 mb-2">{f.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">{f.desc}</p>
-                </div>
+              {features.slice(3).map((f, i) => (
+                <ScrollReveal key={f.title} direction="right" delay={i * 120}>
+                  <div
+                    className="bg-white p-6 shadow-sm border-t-4 hover:shadow-lg hover:-translate-y-1 transition-all"
+                    style={{ borderTopColor: "#2563EB" }}
+                  >
+                    <div className="text-3xl mb-3">{f.icon}</div>
+                    <h3 className="font-bold text-slate-900 mb-2">{f.title}</h3>
+                    <p className="text-slate-600 text-sm leading-relaxed">{f.desc}</p>
+                  </div>
+                </ScrollReveal>
               ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Sectors We Serve */}
+      {/* ── Sectors We Serve ── */}
       <section className="py-16 bg-white" aria-label="Sectors served">
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <h2 className="text-2xl md:text-3xl font-black mb-3" style={{ color: "#1a1a1a" }}>
-            Sectors We <span style={{ color: "#B8870A" }}>Serve</span>
-          </h2>
-          <p className="text-gray-600 mb-10">Trusted across all major construction and industrial sectors.</p>
-          <div className="flex flex-wrap justify-center gap-3">
-            {sectors.map((sector) => (
-              <span
-                key={sector}
-                className="px-5 py-2.5 text-sm font-semibold border-2 hover:text-white transition-all cursor-default"
-                style={{ borderColor: "#FFC510", color: "#B8870A" }}
-              >
-                {sector}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="py-20" style={{ backgroundColor: "#1a1a1a" }} aria-label="Testimonials">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-14">
-            <span style={{ display: "block", width: "4rem", height: "4px", backgroundColor: "#D50000", margin: "0 auto 1.5rem" }} />
-            <h2 className="text-3xl md:text-4xl font-black text-white mb-3">
-              What Our <span style={{ color: "#FFC510" }}>Clients Say</span>
+          <ScrollReveal>
+            <h2 className="text-2xl md:text-3xl font-black mb-3" style={{ color: "#0F172A" }}>
+              Sectors We <span style={{ color: "#2563EB" }}>Serve</span>
             </h2>
-            <p className="text-gray-400">Trusted by contractors, engineers, and builders across the region.</p>
-          </div>
+            <p className="text-slate-500 mb-10">Trusted across all major construction and industrial sectors.</p>
+            <div className="flex flex-wrap justify-center gap-3">
+              {sectors.map((sector, i) => (
+                <span
+                  key={sector}
+                  className="px-5 py-2.5 text-sm font-semibold border-2 hover:text-white hover:bg-blue-600 hover:border-blue-600 transition-all cursor-default"
+                  style={{ borderColor: "#2563EB", color: "#1E3A8A", animationDelay: `${i * 0.05}s` }}
+                >
+                  {sector}
+                </span>
+              ))}
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* ── Testimonials ── */}
+      <section className="py-20" style={{ backgroundColor: "#080C15" }} aria-label="Testimonials">
+        <div className="max-w-7xl mx-auto px-6">
+          <ScrollReveal className="text-center mb-14">
+            <span style={{ display: "block", width: "4rem", height: "4px", backgroundColor: "#2563EB", margin: "0 auto 1.5rem" }} />
+            <h2 className="text-3xl md:text-4xl font-black text-white mb-3">
+              What Our <span style={{ color: "#3B82F6" }}>Clients Say</span>
+            </h2>
+            <p className="text-slate-500">Trusted by contractors, engineers, and builders across the region.</p>
+          </ScrollReveal>
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {testimonials.map((t) => (
-              <article
-                key={t.name}
-                className="p-7 border"
-                style={{ backgroundColor: "#242424", borderColor: "#333" }}
-              >
-                <div className="flex gap-1 mb-4">
-                  {Array.from({ length: t.rating }).map((_, i) => (
-                    <span key={i} style={{ color: "#FFC510" }}>★</span>
-                  ))}
-                </div>
-                <blockquote className="text-gray-300 text-sm leading-relaxed mb-5 italic">
-                  &ldquo;{t.quote}&rdquo;
-                </blockquote>
-                <div>
-                  <div className="font-bold text-white">{t.name}</div>
-                  <div className="text-gray-500 text-xs mt-0.5">{t.role}</div>
-                </div>
-              </article>
+            {testimonials.map((t, i) => (
+              <ScrollReveal key={t.name} delay={i * 150}>
+                <article
+                  className="p-7 border hover:-translate-y-1 transition-transform"
+                  style={{ backgroundColor: "#0E1628", borderColor: "#1E2C42" }}
+                >
+                  <div className="flex gap-1 mb-4">
+                    {Array.from({ length: t.rating }).map((_, j) => (
+                      <span key={j} style={{ color: "#3B82F6" }}>★</span>
+                    ))}
+                  </div>
+                  <blockquote className="text-slate-300 text-sm leading-relaxed mb-5 italic">
+                    &ldquo;{t.quote}&rdquo;
+                  </blockquote>
+                  <div>
+                    <div className="font-bold text-white">{t.name}</div>
+                    <div className="text-slate-500 text-xs mt-0.5">{t.role}</div>
+                  </div>
+                </article>
+              </ScrollReveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Banner */}
+      {/* ── CTA Banner ── */}
       <section
-        className="py-16"
-        style={{ backgroundColor: "#FFC510" }}
+        className="py-16 relative overflow-hidden"
+        style={{ backgroundColor: "#2563EB" }}
         aria-label="Call to action"
       >
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
+        {/* Subtle pattern */}
+        <div
+          className="absolute inset-0 opacity-10"
+          style={{
+            backgroundImage: `radial-gradient(circle at 20% 50%, white 1px, transparent 1px),
+              radial-gradient(circle at 80% 50%, white 1px, transparent 1px)`,
+            backgroundSize: "40px 40px",
+          }}
+        />
+        <ScrollReveal direction="scale" className="relative max-w-7xl mx-auto px-6 text-center">
+          <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
             Ready to Start Your Project?
           </h2>
-          <p className="text-gray-700 mb-8 max-w-xl mx-auto">
+          <p className="text-blue-100 mb-8 max-w-xl mx-auto">
             Contact our team for expert product recommendations, competitive pricing, and fast delivery.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link
               href="/contact"
-              className="font-bold text-base px-8 py-4 hover:opacity-90 transition-opacity"
-              style={{ backgroundColor: "#D50000", color: "white" }}
+              className="font-bold text-base px-8 py-4 hover:opacity-90 transition-all hover:-translate-y-0.5"
+              style={{ backgroundColor: "#BE2227", color: "white" }}
             >
               Get a Quote Today
             </Link>
             <Link
               href="/products"
-              className="font-bold text-base px-8 py-4 border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-yellow-400 transition-all"
+              className="font-bold text-base px-8 py-4 border-2 border-white/70 text-white hover:border-white hover:bg-white/10 transition-all hover:-translate-y-0.5"
             >
               Browse Products
             </Link>
           </div>
-        </div>
+        </ScrollReveal>
       </section>
     </>
   );
